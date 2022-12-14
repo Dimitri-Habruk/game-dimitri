@@ -10,7 +10,7 @@ let xSpeed = -1
 let ySpeed = Math.random()/2
 
 //les viteses de nos 2 plateforms(dino)
-let player1Speed = 0, player2Speed = 0
+let player1Speed = 0, player2Speed = -1.5
 
 //c'est nos 2 plateforms avec qui on joue
 let player1, player2
@@ -57,14 +57,16 @@ addEventListener('DOMContentLoaded', () => {
 
     addEventListener("keydown", changeSpeed)
     setInterval(move,1)    
+    changeSpeed("KeyW")
 })
 
 
 
 function changeSpeed(e){
     switch(e.code){
-        case "KeyW": player2Speed = -1; break;
-        case "KeyS": player2Speed = 1; break;
+        //si on veut 2 jouers
+        // case "KeyW": player2Speed = -1; break;
+        // case "KeyS": player2Speed = 1; break;
         case "ArrowUp": player1Speed = -1; break;
         case "ArrowDown": player1Speed = 1; break;
     }
@@ -109,10 +111,12 @@ function move(){
     }
 
     if (x<0) loose(1)
-    if (x>W) loose(2)
+    if (x>W) {
+        player2Speed = +1.5
+        loose(2)}
     if (y<0 || y>H-50) ySpeed *= -1
 
-    heroBall.style.left = x 
+    heroBall.style.left = x  
     heroBall.style.top = y
 
     player1y += player1Speed
@@ -122,7 +126,12 @@ function move(){
     player1.style.top = player1y
 
     player2y += player2Speed
-    if (player2y<0) player2y = 0
-    if (player2y+250>H) player2y = H-250
+    if (player2y<0) player2Speed = +1.6
+
+    // player2y = 0
+
+    if (player2y+250>H) player2Speed = -1.6
+    // player2y = H-250
+
     player2.style.top = player2y
 }
