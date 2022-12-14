@@ -1,8 +1,13 @@
+html{
+    background-image: url(./images/backgroundALL.jpg);
+    background-size:cover;
+}
 body{
-    margin: 0;
+    margin: auto;
     width: 800px;
     height: 600px;
     border: solid black 1px;
+    background-color: white;
     
     /* display: flex;
     flex-direction: column;
