@@ -1,6 +1,7 @@
 html{
     background-image: url(./images/backgroundALL.jpg);
     background-size:cover;
+    overflow:  hidden;
 }
 body{
     margin: auto;
