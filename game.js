@@ -5,9 +5,7 @@ let x,y
 let heroBall
 
 // mouvement de la ball xSpeed: +1 il vas à droite et -1 à gauhce
-let xSpeed = Math.round(Math.random())
-if (xSpeed==0) xSpeed = -1
-
+let xSpeed = -1
 // mouvement de la ball ySpeed +1 mouvement vers le haut, -1 mouvement vers le bas
 let ySpeed = Math.random()/2
 
@@ -21,7 +19,11 @@ let player1, player2
 let player1y, player2y
 
 //count of goal
-let count1, count2
+
+let count1 = document.querySelector('.count1')
+
+let count2 = document.querySelector('.count2')
+
 
 //с'st le W-width et H-height de notre écran = body
 var W = document.activeElement.clientWidth
@@ -48,15 +50,13 @@ addEventListener('DOMContentLoaded', () => {
 
     player2y = H/2 - 125
     player2.style.top = player2y
-    player2.style.left = W -70
+    player2.style.left = W -220
 
     x = W/2 - 25 
     y = H/2 - 25
 
     addEventListener("keydown", changeSpeed)
-    setInterval(move,1)
-
-    
+    setInterval(move,1)    
 })
 
 
@@ -75,17 +75,31 @@ function changeSpeed(e){
 function loose(n){
     xSpeed *= -1
     ySpeed = Math.random()/2
-    x = W/2
-    y = H/2
-//     if (n==1) count1.innerHTML = parseInt(count1.innerHTML) + 1
-//     if (n==2) count2.innerHTML = parseInt(count1.innerHTML) + 1
+    x = W/2+100
+    y = H/2-300
+    if (n==1) count2.innerHTML = parseInt(count2.innerHTML) + 1
+
+    if (n==2) count1.innerHTML = parseInt(count1.innerHTML) + 1
+
+    if (count1.innerHTML === '2') {
+        alert('Mario Win !')
+    } 
+    if (count2.innerHTML === '2') {
+        alert('Mario lose... BOWSER IS A WINNER !!!')
+    } 
+    
+
 }
+console.log(parseInt(count1))
+
+
+
 
 function move(){
     x += xSpeed
     y += ySpeed
 
-    //x и у = координаты левого верхнего угла мячика
+    //x et у = координаты левого верхнего угла мячика
     //250 - высота платформы
     if ((x<50 && (y > player1y && y<player1y+250)) ||
         (x+25 > W-50 && (y > player2y && y<player2y+250))){
@@ -102,7 +116,7 @@ function move(){
     heroBall.style.top = y
 
     player1y += player1Speed
-    if (player1y<0) player1y = 0
+    if (player1y<0) player1y -= player1y
     if (player1y+250>H) player1y = H-250
 
     player1.style.top = player1y
@@ -112,6 +126,3 @@ function move(){
     if (player2y+250>H) player2y = H-250
     player2.style.top = player2y
 }
-console.log(player1Speed)
-player1y += 100 + 'px'
-console.log(H/2 +7777)

@@ -6,9 +6,9 @@ html{
 body{
     margin: auto;
     width: 800px;
-    height: 600px;
-    border: solid black 1px;
-    background-color: white;
+    height: 100vh;
+    /* border: solid black 1px;
+    background-color: white; */
     
     /* display: flex;
     flex-direction: column;
@@ -47,28 +47,33 @@ h1{
 
 .player1, .player2{
     position: absolute;
-    width: 70px;
-    height: 130px;
-    border: red dotted 1px;
-    background-image: url(./images/dinoLeft.png) ;
+    width: 100px;
+    height: 120px;
+    background-image: url(./images/mario.png) ;
     background-size:contain;
     background-repeat: no-repeat;
     left: 0px;
     top: 0px;
 }
+.player2{
+    width: 200px;
+    height: 420px;
+    background-image: url(./images/Bowser.png) ;
+
+
+
+}
+.score{
+    display: flex;
+    justify-content: space-between;
+}
 .count1, .count2{
     overflow: hidden;
 
     font-size: 72px;
-    position: absolute;
 }
 .count2{
     overflow: hidden;
 
-    right: 10px;
 }
 
-.player2{
-    border: blue 2px dashed;
-
-}
