@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    width: 800px;
+    height: 600px;
+    border: solid black 1px;
+    
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+h1{
+    text-align: center;
+}
+
+.principal{
+    /* margin: auto; */
+    border: red solid 1px;
+    width: 800px;
+    height: 500px;
+    background-color: rgba(244, 169, 169, 0.5);
+    transition: 0.5;
+}
+
+.heroBall{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    background-image: url(./images/ball.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player1, .player2{
+    position: absolute;
+    width: 70px;
+    height: 130px;
+    border: red dotted 1px;
+    background-image: url(./images/dinoLeft.png) ;
+    background-size:contain;
+    background-repeat: no-repeat;
+    left: 0px;
+    top: 0px;
+}
+.count1, .count2{
+    overflow: hidden;
+
+    font-size: 72px;
+    position: absolute;
+}
+.count2{
+    overflow: hidden;
+
+    right: 10px;
+}
+
+.player2{
+    border: blue 2px dashed;
+
+}
